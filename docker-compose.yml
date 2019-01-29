@@ -1,0 +1,37 @@
+version: '3'
+services:
+  api_gateway:
+    image: nginx:latest
+    container_name: api_gateway
+    volumes:
+      - ./api_gateway/nginx:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+    networks:
+      - main
+    depends_on:
+      - model
+      - feature_pipeline
+
+  model:
+    image: theblasiantj/model:latest
+    build: ./model/
+    container_name: model
+    command: python api.py
+    expose:
+      - "9001"
+    networks:
+      - main
+
+  feature_pipeline:
+    image: theblasiantj/feature_pipeline:latest
+    build: ./feature_pipeline/
+    container_name: feature_pipeline
+    command: python api.py
+    expose:
+      - "11594"
+    networks:
+      - main
+
+networks:
+  main:
