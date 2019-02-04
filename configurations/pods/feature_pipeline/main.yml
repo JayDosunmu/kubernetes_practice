@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: feature_pipeline
+  labels:
+    app: feature_pipeline
+spec:
+  containers:
+    - image: theblasiantj/feature_pipeline
+      name: feature_pipeline
+      ports:
+        - containerPort: 11594
