@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: feature_pipeline
+  name: feature-pipeline
 spec:
   replicas: 2
   minReadySeconds: 15
@@ -13,11 +13,11 @@ spec:
   template:
     metadata:
       labels:
-        app: feature_pipeline
+        app: feature-pipeline
     spec:
       containers:
         - image: feature_pipeline
           imagePullPolicy: Never
-          name: feature_pipeline
+          name: feature-pipeline
           ports:
             - containerPort: 11594

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: feature_pipeline_loadbalancer
+  name: feature-pipeline-loadbalancer
 spec:
   type: LoadBalancer
   ports:
