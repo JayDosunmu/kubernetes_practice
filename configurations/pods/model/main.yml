@@ -9,4 +9,4 @@ spec:
     - image: theblasiantj/model
       name: model
       ports:
-        - containerPort: 11594
+        - containerPort: 9001
