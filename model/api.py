@@ -8,13 +8,14 @@ app = Flask(__name__)
 api = Api(app)
 
 model = 'Generic'
-version = '0.1.0'
+version = '0.3.0'
 
 
 class Model(Resource):
     def post(self):
         call_chain = []
         call_chain.append('predict request')
+        res = requests.post('100.66.96.98:11594/')
         call_chain.append(*res.data['call_chain'])
         call_chain.append('predict response: {}'.format(random.randrange(0, 1000)))
         return {
