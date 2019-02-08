@@ -15,7 +15,6 @@ class Model(Resource):
     def post(self):
         call_chain = []
         call_chain.append('predict request')
-        res = requests.post('localhost:11594/')
         call_chain.append(*res.data['call_chain'])
         call_chain.append('predict response: {}'.format(random.randrange(0, 1000)))
         return {
